@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+# Colors
+CYAN='\033[0;36m'
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+PURPLE='\033[0;35m'
+RED='\033[0;31m'
+RESET='\033[0m'
+BOLD='\033[1m'
+
+clear
+
+# Design
+echo -e "${CYAN}"
+cat << "EOF"
+   ██████╗ ██╗██████╗      ██╗      ██████╗  ██████╗ █████╗ ████████╗ ██████╗ ██████╗ 
+  ██╔════╝ ██║██╔══██╗     ██║     ██╔═══██╗██╔════╝██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗
+  ██║  ███╗██║██████╔╝     ██║     ██║   ██║██║     ███████║   ██║   ██║   ██║██████╔╝
+  ██║   ██║██║██╔═══╝      ██║     ██║   ██║██║     ██╔══██║   ██║   ██║   ██║██╔══██╗
+  ╚██████╔╝██║██║          ███████╗╚██████╔╝╚██████╗██║  ██║   ██║   ╚██████╔╝██║  ██║
+   ╚═════╝ ╚═╝╚═╝          ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
+EOF
+echo -e "${RESET}"
+echo -e "${PURPLE}                      Created by Stefan Lacio${RESET}"
+echo -e "${BLUE}──────────────────────────────────────────────────────────────${RESET}"
+echo
+
+lookup() {
+  local ip="$1"
+  local url
+
+  if [ -z "$ip" ]; then
+    url="https://ipapi.co/json/"
+    echo -e "${YELLOW}[*] Detecting your current public IP...${RESET}"
+  else
+    url="https://ipapi.co/${ip}/json/"
+    echo -e "${YELLOW}[*] Looking up IP: ${BOLD}${ip}${RESET}"
+  fi
+
+  echo
+  response=$(curl -s --max-time 10 "$url")
+
+  if [ -z "$response" ]; then
+    echo -e "${RED}[!] Error: Could not connect to the API${RESET}"
+    return 1
+  fi
+
+  python3 -c "
+import json, sys
+try:
+    data = json.loads('''$response''')
+except:
+    print('${RED}[!] Invalid response from API${RESET}')
+    sys.exit(1)
+
+if data.get('error'):
+    print('${RED}[!] Error:${RESET}', data.get('reason', 'Unknown error'))
+    sys.exit(1)
+
+print(f'''${GREEN}${BOLD}IP Address  :${RESET} {data.get('ip', 'N/A')}
+${GREEN}${BOLD}City        :${RESET} {data.get('city', 'N/A')}
+${GREEN}${BOLD}Region      :${RESET} {data.get('region', 'N/A')}
+${GREEN}${BOLD}Country     :${RESET} {data.get('country_name', 'N/A')} ({data.get('country_code', '')})
+${GREEN}${BOLD}Coordinates :${RESET} {data.get('latitude', 'N/A')}, {data.get('longitude', 'N/A')}
+${GREEN}${BOLD}Timezone    :${RESET} {data.get('timezone', 'N/A')}
+${GREEN}${BOLD}ISP / Org   :${RESET} {data.get('org', 'N/A')}
+${GREEN}${BOLD}ASN         :${RESET} {data.get('asn', 'N/A')}
+''')
+"
+}
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo -e "${CYAN}Usage:${RESET}"
+  echo "  ip-locator              Show your own IP info"
+  echo "  ip-locator 8.8.8.8      Lookup any IP address"
+  echo "  ip-locator --help       Show this help"
+  echo
+  exit 0
+fi
+
+lookup "$1"
+
+echo
+echo -e "${BLUE}──────────────────────────────────────────────────────────────${RESET}"
+echo -e "${PURPLE}                 Made with ❤️  by Stefan Lacio${RESET}"
+echo
