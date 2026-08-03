@@ -57,13 +57,13 @@
 
 ## Installation
 
-### Method 1 â€” One-Command Install (Recommended)
+### Method 1 One-Command Install (Recommended)
 
 ```bash
 curl -sL https://raw.githubusercontent.com/stfnlacio/ip-locator/main/install.sh | bash
 ```
 
-### Method 2 â€” Manual Install
+### Method 2 Manual Install
 
 ```bash
 # 1. Download the tool
