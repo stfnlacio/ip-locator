@@ -6,7 +6,7 @@ echo -e "\033[0;36m[*] Installing IP Locator by Stefan Lacio...\033[0m"
 mkdir -p $HOME/bin
 
 # Download the tool
-curl -sL https://raw.githubusercontent.com/YOUR_USERNAME/ip-locator/main/ip-locator -o $HOME/bin/ip-locator
+curl -sL https://raw.githubusercontent.com/stfnlacio/ip-locator/main/ip-locator -o $HOME/bin/ip-locator
 
 # Make it executable
 chmod +x $HOME/bin/ip-locator
