@@ -2,7 +2,7 @@
 
 # IP Locator
 
-**A beautiful, interactive IP Address Locator for Termux & Linux**
+**A beautiful IP Address Locator for Termux & Linux**
 
 [![Stars](https://img.shields.io/github/stars/stfnlacio/ip-locator?style=flat&color=yellow)](https://github.com/stfnlacio/ip-locator/stargazers)
 [![Forks](https://img.shields.io/github/forks/stfnlacio/ip-locator?style=flat&color=blue)](https://github.com/stfnlacio/ip-locator/network/members)
@@ -32,12 +32,12 @@
 
 ## Features
 
-- Colored, clean terminal interface
-- Interactive, easy-to-use menu
-- Check your own public IP or any other IP address
-- Displays City, Region, Country, Coordinates, ISP & more
-- Direct Google Maps link for located coordinates
-- Works seamlessly on both Termux and standard Linux
+- Clean & colored terminal interface
+- Lookup your own public IP or any other IP address
+- Displays **City, Region, Country, Coordinates, Timezone, ISP & ASN**
+- Automatic fallback between multiple free APIs (greatly reduces rate-limit issues)
+- Works seamlessly on both **Termux** and standard **Linux**
+- One-command installation
 
 ---
 
@@ -57,13 +57,13 @@
 
 ## Installation
 
-### Method 1 One-Command Install (Recommended)
+### Method 1 — One-Command Install (Recommended)
 
 ```bash
 curl -sL https://raw.githubusercontent.com/stfnlacio/ip-locator/main/install.sh | bash
 ```
 
-### Method 2 Manual Install
+### Method 2 — Manual Install
 
 ```bash
 # 1. Download the tool
@@ -84,27 +84,10 @@ source ~/.bashrc
 Once installed, simply run:
 
 ```bash
-ip-locator
+ip-locator              # Check your own public IP
+ip-locator 8.8.8.8      # Lookup any IP address
+ip-locator --help       # Show help
 ```
-
-You'll see the interactive menu:
-
-```
--------------------------------
-      Select option >>
--------------------------------
-  1) Check your IP info
-  2) Check other IP info
-  3) Exit
--------------------------------
-Enter your choice:
-```
-
-| Option | Description |
-|:------:|--------------|
-| **1** | Shows your current public IP information |
-| **2** | Enter any IP address to look up |
-| **3** | Exit the tool |
 
 ---
 
@@ -112,8 +95,8 @@ Enter your choice:
 
 | Dependency | Purpose |
 |------------|---------|
-| `curl` | Fetching data & installation |
-| `python3` | Running the core lookup logic |
+| `curl`     | Fetching data & installation |
+| `python3`  | Parsing the API response |
 
 Install them on Termux if needed:
 
@@ -129,6 +112,7 @@ pkg install curl python
 - [ ] Batch lookup from a file of IPs
 - [ ] IPv6 support
 - [ ] Offline/local GeoIP database fallback
+- [ ] Optional interactive menu
 
 Have an idea? [Open an issue](https://github.com/stfnlacio/ip-locator/issues) or submit a PR.
 
@@ -147,7 +131,7 @@ Contributions are welcome!
 
 ## License
 
-This project is licensed under the **MIT License** see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
