@@ -49,7 +49,7 @@
 ![IP Locator demo](assets/demo.gif)
 -->
 
-*Add a screenshot or terminal recording (e.g. via [asciinema](https://asciinema.org) or a GIF) here to show the tool in action.*
+![IP Locator Preview](https://github.com/stfnlacio/ip-locator/blob/main/preview.png)
 
 </div>
 
