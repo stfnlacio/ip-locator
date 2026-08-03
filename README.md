@@ -5,7 +5,8 @@ Created by **Stefan Lacio**.
 
 ---
 
-### Features
+# Features
+
 - Beautiful colored design
 - Interactive menu (easy to use)
 - Check your own IP or any other IP
@@ -15,16 +16,15 @@ Created by **Stefan Lacio**.
 
 ---
 
-### Installation (Step by Step)
+# Installation
 
-#### Method 1: One Command Install (Recommended)
+# Method 1: One Command Install (Recommended)
 
-Just copy and paste this command:
-
-```bash
 curl -sL https://raw.githubusercontent.com/stfnlacio/ip-locator/main/install.sh | bash
-Method 2: Manual Install
-Bash# 1. Download the tool
+
+# Method 2: Manual Install
+
+# 1. Download the tool
 curl -sL https://raw.githubusercontent.com/stfnlacio/ip-locator/main/ip-locator -o $HOME/bin/ip-locator
 
 # 2. Make it executable
@@ -34,11 +34,17 @@ chmod +x $HOME/bin/ip-locator
 echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 source ~/.bashrc
 
-How to Use
-After installation, just type:
-Baship-locator
+---
+
+# How to Use
+
+After installation, type:
+
+ip-locator
+
 You will see this menu:
-text# Select option >>
+
+# Select option >>
 
 1) Check your IP info
 2) Check other IP info
@@ -46,18 +52,23 @@ text# Select option >>
 
 Enter Your choice:
 
-Choose 1 → Shows your current public IP information
-Choose 2 → Enter any IP address to lookup
-Choose 3 → Exit the tool
+- 1 → Shows your current public IP information  
+- 2 → Enter any IP address to lookup  
+- 3 → Exit the tool
 
+---
 
-Requirements
+# Requirements
 
-curl
-python3
+- curl
+- python3
 
 Install them in Termux if needed:
-Bashpkg install curl python
 
-Author
-Stefan Lacio
+pkg install curl python
+
+---
+
+# Author
+
+**Stefan Lacio**
