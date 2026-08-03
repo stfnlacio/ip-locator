@@ -4,14 +4,29 @@
 
 **A beautiful, interactive IP Address Locator for Termux & Linux**
 
+[![Stars](https://img.shields.io/github/stars/stfnlacio/ip-locator?style=flat&color=yellow)](https://github.com/stfnlacio/ip-locator/stargazers)
+[![Forks](https://img.shields.io/github/forks/stfnlacio/ip-locator?style=flat&color=blue)](https://github.com/stfnlacio/ip-locator/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/stfnlacio/ip-locator?color=orange)](https://github.com/stfnlacio/ip-locator/commits/main)
 [![Platform](https://img.shields.io/badge/platform-Termux%20%7C%20Linux-brightgreen)](#)
-[![Language](https://img.shields.io/badge/built%20with-Bash%20%26%20Python3-blue)](#)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey)](#)
-[![Maintained](https://img.shields.io/badge/maintained-yes-success)](#)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 
 *Created by **Stefan Lacio***
 
 </div>
+
+---
+
+## ðŸ“‘ Table of Contents
+
+- [Features](#-features)
+- [Preview](#-preview)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Requirements](#%EF%B8%8F-requirements)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Author](#-author)
 
 ---
 
@@ -23,6 +38,20 @@
 - ðŸ™ï¸ Displays City, Region, Country, Coordinates, ISP & more
 - ðŸ—ºï¸ Direct Google Maps link for located coordinates
 - ðŸ’» Works seamlessly on both Termux and standard Linux
+
+---
+
+## ðŸ–¼ï¸ Preview
+
+<div align="center">
+
+<!-- Replace this with an actual screenshot or terminal recording, e.g.:
+![IP Locator demo](assets/demo.gif)
+-->
+
+> ðŸ“¸ *Add a screenshot or terminal recording (e.g. via [asciinema](https://asciinema.org) or a GIF) here to show the tool in action â€” this is the single biggest thing that makes a CLI tool's README stand out.*
+
+</div>
 
 ---
 
@@ -91,6 +120,34 @@ Install them on Termux if needed:
 ```bash
 pkg install curl python
 ```
+
+---
+
+## ðŸ—ºï¸ Roadmap
+
+- [ ] JSON output mode (`--json`) for scripting
+- [ ] Batch lookup from a file of IPs
+- [ ] IPv6 support
+- [ ] Offline/local GeoIP database fallback
+
+> Have an idea? [Open an issue](https://github.com/stfnlacio/ip-locator/issues) or submit a PR.
+
+---
+
+## ðŸ¤ Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Open a Pull Request
+
+---
+
+## ðŸ“„ License
+
+This project is licensed under the **MIT License** â€” see the [LICENSE](LICENSE) file for details.
 
 ---
 
