@@ -10,11 +10,11 @@ RED='\033[0;31m'
 RESET='\033[0m'
 BOLD='\033[1m'
 
-clear
-
-# Design
-echo -e "${CYAN}"
-cat << "EOF"
+# Function to show banner
+show_banner() {
+  clear
+  echo -e "${CYAN}"
+  cat << "EOF"
    ██████╗ ██╗██████╗      ██╗      ██████╗  ██████╗ █████╗ ████████╗ ██████╗ ██████╗ 
   ██╔════╝ ██║██╔══██╗     ██║     ██╔═══██╗██╔════╝██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗
   ██║  ███╗██║██████╔╝     ██║     ██║   ██║██║     ███████║   ██║   ██║   ██║██████╔╝
@@ -22,24 +22,23 @@ cat << "EOF"
   ╚██████╔╝██║██║          ███████╗╚██████╔╝╚██████╗██║  ██║   ██║   ╚██████╔╝██║  ██║
    ╚═════╝ ╚═╝╚═╝          ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
 EOF
-echo -e "${RESET}"
-echo -e "${PURPLE}                      Created by Stefan Lacio${RESET}"
-echo -e "${BLUE}──────────────────────────────────────────────────────────────${RESET}"
-echo
+  echo -e "${RESET}"
+  echo -e "${PURPLE}                      Created by Stefan Lacio${RESET}"
+  echo -e "${BLUE}──────────────────────────────────────────────────────────────${RESET}"
+  echo
+}
 
+# Function to lookup IP
 lookup() {
   local ip="$1"
   local url
 
   if [ -z "$ip" ]; then
     url="https://ipapi.co/json/"
-    echo -e "${YELLOW}[*] Detecting your current public IP...${RESET}"
   else
     url="https://ipapi.co/${ip}/json/"
-    echo -e "${YELLOW}[*] Looking up IP: ${BOLD}${ip}${RESET}"
   fi
 
-  echo
   response=$(curl -s --max-time 10 "$url")
 
   if [ -z "$response" ]; then
@@ -59,30 +58,77 @@ if data.get('error'):
     print('${RED}[!] Error:${RESET}', data.get('reason', 'Unknown error'))
     sys.exit(1)
 
-print(f'''${GREEN}${BOLD}IP Address  :${RESET} {data.get('ip', 'N/A')}
-${GREEN}${BOLD}City        :${RESET} {data.get('city', 'N/A')}
-${GREEN}${BOLD}Region      :${RESET} {data.get('region', 'N/A')}
-${GREEN}${BOLD}Country     :${RESET} {data.get('country_name', 'N/A')} ({data.get('country_code', '')})
-${GREEN}${BOLD}Coordinates :${RESET} {data.get('latitude', 'N/A')}, {data.get('longitude', 'N/A')}
-${GREEN}${BOLD}Timezone    :${RESET} {data.get('timezone', 'N/A')}
-${GREEN}${BOLD}ISP / Org   :${RESET} {data.get('org', 'N/A')}
-${GREEN}${BOLD}ASN         :${RESET} {data.get('asn', 'N/A')}
+ip = data.get('ip', 'N/A')
+org = data.get('org', 'N/A')
+city = data.get('city', 'N/A')
+region = data.get('region', 'N/A')
+country = data.get('country_name', 'N/A')
+lat = data.get('latitude', 'N/A')
+lon = data.get('longitude', 'N/A')
+
+print(f'''${YELLOW}>>> IP address details${RESET}
+
+${GREEN}1) IP Address :${RESET}  ${YELLOW}{ip}${RESET}
+${GREEN}2) Org        :${RESET}  ${YELLOW}{org}${RESET}
+${GREEN}3) City       :${RESET}  ${YELLOW}{city}${RESET}
+${GREEN}4) Region     :${RESET}  ${YELLOW}{region}${RESET}
+${GREEN}5) Country    :${RESET}  ${YELLOW}{country}${RESET}
+${GREEN}6) Location${RESET}
+        ${GREEN}Latitude  :${RESET}  {lat}
+        ${GREEN}Longitude :${RESET}  {lon}
+
+${CYAN}# Google Map link :${RESET}  ${BLUE}https://www.google.com/maps/place/{lat}+{lon}${RESET}
 ''')
 "
+
+  echo
 }
 
-if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-  echo -e "${CYAN}Usage:${RESET}"
-  echo "  ip-locator              Show your own IP info"
-  echo "  ip-locator 8.8.8.8      Lookup any IP address"
-  echo "  ip-locator --help       Show this help"
+# Main menu loop
+while true; do
+  show_banner
+
+  echo -e "${RED}# Select option >>${RESET}"
   echo
-  exit 0
-fi
+  echo -e "${GREEN}1) Check your IP info${RESET}"
+  echo -e "${GREEN}2) Check other IP info${RESET}"
+  echo -e "${GREEN}3) Exit${RESET}"
+  echo
+  echo -ne "${CYAN}Enter Your choice: ${RESET}"
+  read choice
 
-lookup "$1"
-
-echo
-echo -e "${BLUE}──────────────────────────────────────────────────────────────${RESET}"
-echo -e "${PURPLE}                 Made with ❤️  by Stefan Lacio${RESET}"
-echo
+  case $choice in
+    1)
+      echo
+      echo -e "${YELLOW}[*] Detecting your current public IP...${RESET}"
+      echo
+      lookup
+      echo -e "${BLUE}Press Enter to continue...${RESET}"
+      read
+      ;;
+    2)
+      echo
+      echo -ne "${YELLOW}>>> Enter IP Address: ${RESET}"
+      read target_ip
+      echo
+      if [ -z "$target_ip" ]; then
+        echo -e "${RED}[!] No IP entered${RESET}"
+        sleep 1
+      else
+        lookup "$target_ip"
+        echo -e "${BLUE}Press Enter to continue...${RESET}"
+        read
+      fi
+      ;;
+    3)
+      echo
+      echo -e "${PURPLE}Thank you for using IP Locator by Stefan Lacio!${RESET}"
+      echo
+      exit 0
+      ;;
+    *)
+      echo -e "${RED}[!] Invalid option. Please choose 1, 2 or 3.${RESET}"
+      sleep 1
+      ;;
+  esac
+done
