@@ -1,6 +1,6 @@
 <div align="center">
 
-# ðŸŒ IP Locator
+# IP Locator
 
 **A beautiful, interactive IP Address Locator for Termux & Linux**
 
@@ -16,32 +16,32 @@
 
 ---
 
-## ðŸ“‘ Table of Contents
+## Table of Contents
 
-- [Features](#-features)
-- [Preview](#-preview)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Requirements](#%EF%B8%8F-requirements)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Author](#-author)
-
----
-
-## âœ¨ Features
-
-- ðŸŽ¨ Beautiful colored terminal interface
-- ðŸ–±ï¸ Interactive, easy-to-use menu
-- ðŸ“ Check your own public IP or any other IP address
-- ðŸ™ï¸ Displays City, Region, Country, Coordinates, ISP & more
-- ðŸ—ºï¸ Direct Google Maps link for located coordinates
-- ðŸ’» Works seamlessly on both Termux and standard Linux
+- [Features](#features)
+- [Preview](#preview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Requirements](#requirements)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
 
 ---
 
-## ðŸ–¼ï¸ Preview
+## Features
+
+- Colored, clean terminal interface
+- Interactive, easy-to-use menu
+- Check your own public IP or any other IP address
+- Displays City, Region, Country, Coordinates, ISP & more
+- Direct Google Maps link for located coordinates
+- Works seamlessly on both Termux and standard Linux
+
+---
+
+## Preview
 
 <div align="center">
 
@@ -49,13 +49,13 @@
 ![IP Locator demo](assets/demo.gif)
 -->
 
-> ðŸ“¸ *Add a screenshot or terminal recording (e.g. via [asciinema](https://asciinema.org) or a GIF) here to show the tool in action â€” this is the single biggest thing that makes a CLI tool's README stand out.*
+*Add a screenshot or terminal recording (e.g. via [asciinema](https://asciinema.org) or a GIF) here to show the tool in action.*
 
 </div>
 
 ---
 
-## ðŸ“¦ Installation
+## Installation
 
 ### Method 1 â€” One-Command Install (Recommended)
 
@@ -79,7 +79,7 @@ source ~/.bashrc
 
 ---
 
-## ðŸš€ Usage
+## Usage
 
 Once installed, simply run:
 
@@ -87,16 +87,16 @@ Once installed, simply run:
 ip-locator
 ```
 
-You'll be greeted with the interactive menu:
+You'll see the interactive menu:
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚      Select option >>       â”‚
-â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  1) Check your IP info      â”‚
-â”‚  2) Check other IP info     â”‚
-â”‚  3) Exit                    â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+-------------------------------
+      Select option >>
+-------------------------------
+  1) Check your IP info
+  2) Check other IP info
+  3) Exit
+-------------------------------
 Enter your choice:
 ```
 
@@ -108,7 +108,7 @@ Enter your choice:
 
 ---
 
-## ðŸ› ï¸ Requirements
+## Requirements
 
 | Dependency | Purpose |
 |------------|---------|
@@ -123,18 +123,18 @@ pkg install curl python
 
 ---
 
-## ðŸ—ºï¸ Roadmap
+## Roadmap
 
 - [ ] JSON output mode (`--json`) for scripting
 - [ ] Batch lookup from a file of IPs
 - [ ] IPv6 support
 - [ ] Offline/local GeoIP database fallback
 
-> Have an idea? [Open an issue](https://github.com/stfnlacio/ip-locator/issues) or submit a PR.
+Have an idea? [Open an issue](https://github.com/stfnlacio/ip-locator/issues) or submit a PR.
 
 ---
 
-## ðŸ¤ Contributing
+## Contributing
 
 Contributions are welcome!
 
@@ -145,18 +145,18 @@ Contributions are welcome!
 
 ---
 
-## ðŸ“„ License
+## License
 
 This project is licensed under the **MIT License** â€” see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## ðŸ‘¤ Author
+## Author
 
 **Stefan Lacio**
 
 <div align="center">
 
-*If you find this tool useful, consider giving the repo a â­!*
+*If you find this tool useful, consider giving the repo a star.*
 
 </div>
