@@ -84,10 +84,6 @@ lookup() {
   # IMPORTANT: the response is passed through the environment (RESPONSE)
   # and the python code lives in a QUOTED heredoc ('PYEOF'), so nothing
   # in the API response can ever be interpreted as shell or python source.
-  # This is what was broken before: the raw JSON was spliced directly
-  # into a double-quoted -c "..." string, and any " character in the
-  # response (which JSON is full of) closed that string early and broke
-  # the whole command -- which is why options 1 and 2 failed.
   RESPONSE="$response" python3 << 'PYEOF'
 import json
 import os
